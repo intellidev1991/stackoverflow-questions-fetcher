@@ -1,6 +1,6 @@
-# StackOverFlow Question Fetcher
+# StackOverFlow Questions Fetcher
 
-Try this app here: [https://stackoverflow-question-fetcher.netlify.app/](https://stackoverflow-question-fetcher.netlify.app/).
+Try this app here: [https://stackoverflow-questions-fetcher.netlify.app/](https://stackoverflow-questions-fetcher.netlify.app/).
 
 ## Features
 
