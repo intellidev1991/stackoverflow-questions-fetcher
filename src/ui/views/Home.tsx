@@ -11,7 +11,7 @@ import { MostVotedPanel } from "../components/MostVotedPanel";
 interface IHomeProps {}
 
 const Home: React.FC<IHomeProps> = React.memo(({}) => {
-  const meta = useChangeTitle("Stack overflow explorer - Hamed task");
+  const meta = useChangeTitle("Stack overflow explorer - Hamed's task");
   const [open, setOpen] = useState(false);
   const [rowClickedData, setRowClickedData] = useState<
     IQuestionItem | undefined

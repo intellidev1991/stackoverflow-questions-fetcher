@@ -9,7 +9,7 @@ import { MostVotedPanel } from "../components/MostVotedPanel";
 interface IMostVotedProps {}
 
 const MostVoted: React.FC<IMostVotedProps> = React.memo(({}) => {
-  const meta = useChangeTitle("Most voted questions");
+  const meta = useChangeTitle("The most voted questions");
   const [open, setOpen] = useState(false);
   const [rowClickedData, setRowClickedData] = useState<
     IQuestionItem | undefined

@@ -70,7 +70,7 @@ const Layout: React.FC<ILayoutProps> = React.memo(({}) => {
               history.push(config_links.mostVoted);
             }}
           >
-            Most voted questions
+            The most voted questions
           </Nav.Item>
           <Nav.Item
             eventKey="4"
