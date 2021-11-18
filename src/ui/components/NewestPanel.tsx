@@ -25,6 +25,8 @@ import Search from "@rsuite/icons/Search";
 import moment from "moment";
 import * as dateFns from "date-fns";
 import { Cell, Column, HeaderCell } from "rsuite-table";
+import { useMediaQuery } from "react-responsive";
+
 moment.updateLocale("en", {
   week: {
     dow: 0, // 0 to 6 sunday to saturday
@@ -52,6 +54,10 @@ interface INewestPanelProps {
 
 const NewestPanel: React.FC<INewestPanelProps> = React.memo(
   ({ onClick, autoHeight = false }) => {
+    const isMobile = useMediaQuery({
+      query: "(max-width: 405px)",
+    });
+
     const [loading, setLoading] = useState(false);
     const [has_more, setHas_more] = useState(false);
     const [questionsData, setQuestionsData] = useState<IQuestionItem[]>([]);
@@ -198,7 +204,7 @@ const NewestPanel: React.FC<INewestPanelProps> = React.memo(
               </Form.Group>
 
               <Form.ControlLabel>Search:</Form.ControlLabel>
-              <Form.Group style={{ width: 350 }}>
+              <Form.Group style={{ width: isMobile ? 270 : 300 }}>
                 <ReactTagInput
                   tags={tagged}
                   onChange={(newTags) => {
@@ -270,6 +276,7 @@ const NewestPanel: React.FC<INewestPanelProps> = React.memo(
                   autoHeight={autoHeight}
                   wordWrap
                   loading={loading}
+                  affixHeader
                   affixHorizontalScrollbar
                   rowClassName={"cursor-pointer"}
                   data={questionsData}
@@ -277,19 +284,19 @@ const NewestPanel: React.FC<INewestPanelProps> = React.memo(
                     if (onClick) onClick(rowData as IQuestionItem);
                   }}
                 >
-                  <Column width={50} align="center" fixed>
+                  <Column width={50}>
                     <HeaderCell>#</HeaderCell>
                     <Cell>
                       {(rowData, index) => index + pagesize * (page - 1) + 1}
                     </Cell>
                   </Column>
 
-                  <Column flexGrow={1}>
+                  <Column flexGrow={3} minWidth={200}>
                     <HeaderCell>Title</HeaderCell>
                     <Cell dataKey="title" />
                   </Column>
 
-                  <Column flexGrow={2}>
+                  <Column flexGrow={2} minWidth={150}>
                     <HeaderCell>Created at</HeaderCell>
                     <Cell>
                       {(rowData) => (
