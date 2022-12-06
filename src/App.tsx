@@ -1,24 +1,8 @@
 /* eslint-disable */
 //@ts-nocheck
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-  useHistory,
-} from "react-router-dom";
-import {
-  Container,
-  Header,
-  Content,
-  Footer,
-  Sidebar,
-  Navbar,
-  Nav,
-  Dropdown,
-  Button,
-} from "rsuite";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import { LoadingPage } from "./ui/components/LoadingPage";
 function App() {
   const Layout = React.lazy(() => import("./ui/views/Layout"));

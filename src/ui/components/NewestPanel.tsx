@@ -179,7 +179,7 @@ const NewestPanel: React.FC<INewestPanelProps> = React.memo(
                   searchable={false}
                   value={pagesize}
                   onChange={(v) => {
-                    setPagesize(Number.parseInt(v.toString()));
+                    setPagesize(Number.parseInt(v?.toString() ?? "1"));
                     setPage(1);
                   }}
                   data={def_pagesize}
@@ -287,7 +287,9 @@ const NewestPanel: React.FC<INewestPanelProps> = React.memo(
                   <Column width={50}>
                     <HeaderCell>#</HeaderCell>
                     <Cell>
-                      {(rowData, index) => index + pagesize * (page - 1) + 1}
+                      {(rowData, index) =>
+                        index ?? 0 + pagesize * (page - 1) + 1
+                      }
                     </Cell>
                   </Column>
 
